@@ -1,38 +1,70 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended" // uses the recommended rules from the @typescript-eslint/eslint-plugin
-  ],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "ignorePatterns": [
-    "dist"
-  ],
-  "rules": {
-    "quotes": ["warn", "single"],
-    "indent": ["warn", 2, { "SwitchCase": 1 }],
-    "semi": ["off"],
-    "comma-dangle": ["warn", "always-multiline"],
-    "dot-notation": "off",
-    "eqeqeq": "warn",
-    "curly": ["warn", "all"],
-    "brace-style": ["warn"],
-    "prefer-arrow-callback": ["warn"],
-    "max-len": ["warn", 140],
-    "no-console": ["warn"], // use the provided Homebridge log method instead
-    "no-non-null-assertion": ["off"],
-    "comma-spacing": ["error"],
-    "no-multi-spaces": ["warn", { "ignoreEOLComments": true }],
-    "no-trailing-spaces": ["warn"],
-    "lines-between-class-members": ["warn", "always", {"exceptAfterSingleLine": true}],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/semi": ["warn"],
-    "@typescript-eslint/member-delimiter-style": ["warn"]
-  }
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:import/recommended"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"ignorePatterns": ["dist"],
+	"plugins": ["@typescript-eslint", "prettier"],
+	"rules": {
+		"indent": "off",
+		"@typescript-eslint/indent": "off",
+		"semi": "off",
+		"@typescript-eslint/semi": [
+			"error",
+			"always",
+			{"omitLastInOneLineBlock": false}
+		],
+		"func-call-spacing": "off",
+		"@typescript-eslint/func-call-spacing": ["error", "never"],
+		"quotes": "off",
+		"@typescript-eslint/quotes": ["error", "single"],
+		"brace-style": "off",
+		"@typescript-eslint/brace-style": [
+			"error",
+			"1tbs",
+			{"allowSingleLine": true}
+		],
+		"comma-spacing": "off",
+		"@typescript-eslint/comma-spacing": ["error"],
+		"space-before-function-paren": "off",
+		"@typescript-eslint/space-before-function-paren": [
+			"error",
+			{
+				"anonymous": "always",
+				"named": "never",
+				"asyncArrow": "always"
+			}
+		],
+		"@typescript-eslint/no-unnecessary-type-assertion": ["error"],
+		"@typescript-eslint/no-useless-constructor": ["error"],
+		"@typescript-eslint/prefer-includes": ["error"],
+		"@typescript-eslint/prefer-string-starts-ends-with": ["error"],
+		"keyword-spacing": ["error"],
+		"import/order": [
+			"error",
+			{
+				"groups": ["builtin", "external", "internal"],
+				"pathGroupsExcludedImportTypes": ["builtin"],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		]
+	}
 }

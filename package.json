@@ -1,5 +1,4 @@
 {
-	"private": true,
 	"displayName": "Homebridge HTTP Thermostat",
 	"name": "@piets/homebridge-http-thermostat",
 	"version": "1.0.0",
